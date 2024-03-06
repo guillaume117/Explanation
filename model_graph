@@ -1,0 +1,70 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontname=monospace fontsize=10 height=0.2 ranksep=0.1 shape=box style=filled]
+	5274666864 [label="
+ (1, 10)" fillcolor=darkolivegreen1]
+	5274651376 [label=AddmmBackward0]
+	5274651088 -> 5274651376
+	5274666288 [label="classifier.4.bias
+ (10)" fillcolor=lightblue]
+	5274666288 -> 5274651088
+	5274651088 [label=AccumulateGrad]
+	5274651040 -> 5274651376
+	5274651040 [label=MulBackward0]
+	5274650944 -> 5274651040
+	5274650944 [label=ReluBackward0]
+	5274650800 -> 5274650944
+	5274650800 [label=AddmmBackward0]
+	5274650608 -> 5274650800
+	5274666096 [label="classifier.1.bias
+ (64)" fillcolor=lightblue]
+	5274666096 -> 5274650608
+	5274650608 [label=AccumulateGrad]
+	5274650656 -> 5274650800
+	5274650656 [label=ViewBackward0]
+	5274650512 -> 5274650656
+	5274650512 [label=MaxPool2DWithIndicesBackward0]
+	5274650224 -> 5274650512
+	5274650224 [label=ReluBackward0]
+	5274652336 -> 5274650224
+	5274652336 [label=ConvolutionBackward0]
+	5274652432 -> 5274652336
+	5274652432 [label=ReluBackward0]
+	5274652624 -> 5274652432
+	5274652624 [label=ConvolutionBackward0]
+	5274652720 -> 5274652624
+	5274665520 [label="conv_block1.0.weight
+ (16, 1, 3, 3)" fillcolor=lightblue]
+	5274665520 -> 5274652720
+	5274652720 [label=AccumulateGrad]
+	5274652672 -> 5274652624
+	5274665712 [label="conv_block1.0.bias
+ (16)" fillcolor=lightblue]
+	5274665712 -> 5274652672
+	5274652672 [label=AccumulateGrad]
+	5274652384 -> 5274652336
+	5274665808 [label="conv_block1.2.weight
+ (32, 16, 3, 3)" fillcolor=lightblue]
+	5274665808 -> 5274652384
+	5274652384 [label=AccumulateGrad]
+	5274650368 -> 5274652336
+	5274665904 [label="conv_block1.2.bias
+ (32)" fillcolor=lightblue]
+	5274665904 -> 5274650368
+	5274650368 [label=AccumulateGrad]
+	5274650896 -> 5274650800
+	5274650896 [label=TBackward0]
+	5274652288 -> 5274650896
+	5274666000 [label="classifier.1.weight
+ (64, 4608)" fillcolor=lightblue]
+	5274666000 -> 5274652288
+	5274652288 [label=AccumulateGrad]
+	5274650992 -> 5274651376
+	5274650992 [label=TBackward0]
+	5274650560 -> 5274650992
+	5274666192 [label="classifier.4.weight
+ (10, 64)" fillcolor=lightblue]
+	5274666192 -> 5274650560
+	5274650560 [label=AccumulateGrad]
+	5274651376 -> 5274666864
+}
