@@ -15,6 +15,7 @@ from CNN.ResNet18 import ResNet18
 from CNN.VGG import VGG
 from CNN.SimpleCNN import SimpleModel
 import torch.nn as nn
+from util.addGitignore import addGitignore
 
 """
 This class aims to generate num_subset sub-datasets composed of 80% of the original dataset, 
@@ -54,8 +55,9 @@ class GenerateDataset:
         goal is to assess the quality of explanation
        
         """
-      
+        addGitignore(self.name_folder)
         self.path = f'./{self.name_folder}'
+        
         print(self.path)
 
         if self.name_dataset == 'FashionMNIST':
