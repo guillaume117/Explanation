@@ -9,6 +9,11 @@ import copy
  This is my train method, classic. 
  Once will remarks that there are no test in this method, accordingly to the scope of our 
  subject. 
+    The method is a classic train method, with the following steps:  
+    - Load the data
+    - Set the model to train mode
+    - Set the optimizer to zero_grad
+    - Set the scheduler to step
  
 """    
 class TrainDataset:

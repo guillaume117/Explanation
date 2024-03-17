@@ -1,5 +1,9 @@
 """
 Here you'll find a simple CNN network that you'll can use during the assessment;
+
+The model is a simple CNN with 2 convolutional layers and 2 fully connected layers.
+
+The hook is used to get the activations of the first convolutional layer for explanation purposes.
 """
 import torch.nn as nn
 

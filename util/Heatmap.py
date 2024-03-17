@@ -17,6 +17,13 @@ from util.GenerateAndTrain import GenerateDataset
 
 
 class ComputeHeatmap:
+    """ 
+    This class is used to compute the heatmap of the model.
+    input: case: object of the class GenerateDataset
+           num_sample: number of sample to compute the heatmap.
+    output: heatmap_global: list of heatmap of the model.
+            pred_acc: prediction accuracy of the model.      
+           """
     def __init__(self,case,num_sample):
         self.case = case
         self.num_sample=num_sample
@@ -54,6 +61,8 @@ class ComputeHeatmap:
 
 
     def compute_heatmap(self):    
+        """ Compute the heatmap of the model.
+        output: heatmap_global: list of heatmap of the model."""
         for j in tqdm(range(self.num_subset)):
             self.model.load_state_dict(torch.load(f'{self.name_folder}/{self.ResName}_Trained_dataset_{j}.pth'))
 
@@ -62,11 +71,9 @@ class ComputeHeatmap:
             for i in range(self.num_sample):
                 img=torch.tensor(self.train_dataset[i][0])
                 label=torch.tensor(self.train_dataset[i][1])
-                #noise = torch.randn_like(img) * noise_level
-                #img= img+noise
-                #img = torch.clamp(img, 0, 1)
+                
                 label = int(label)
-                #img = F.interpolate(img, size=new_size, mode='bilinear', align_corners=False)
+        
                 img = img.float().unsqueeze(1)
                 pred=self.model(img)
                 P = pred.argmax().numpy()
@@ -96,8 +103,10 @@ class ComputeHeatmap:
 
 
     def get_heatmap(self):
+        """ Return the heatmap of the model."""
         return self.heatmap_global
     
     def get_pred_acc(self):
+        """ Return the prediction accuracy of the model."""
         return self.pred_acc
         

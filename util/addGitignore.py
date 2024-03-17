@@ -2,6 +2,11 @@
 import os
 
 def addGitignore(path_or_file_name):
+    """ 
+    Add the path or file name to the .gitignore file.
+    input: path_or_file_name: the path or file name to add to the .gitignore file.
+    output: None
+    """
     path_gitignore = ".gitignore"
     if not os.path.exists(path_gitignore):
         with open(path_gitignore, 'w') as gitignore:

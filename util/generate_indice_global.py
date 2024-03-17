@@ -3,6 +3,13 @@ import numpy as np
 import pandas as pd
 
 def generate_indice_global(case , num_sample):
+        """ 
+        Generate the global indices of the model.
+        input: case: the case of the model.
+               num_sample: number of sample to compute the heatmap.
+        output: indices_global: global indices of the model.
+                printed_list: list of the indices of the model.
+        """
         
         num_subset,name_folder,name_dataset,_= case.get_parameters()
         indices_global = np.zeros((num_sample,num_subset))

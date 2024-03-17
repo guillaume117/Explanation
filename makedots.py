@@ -4,7 +4,6 @@ from torchviz import make_dot
 import torch
 from CNN.SimpleCNN import SimpleModel
 
-
 model = SimpleModel(num_classes=10)
 
 

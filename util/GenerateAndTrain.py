@@ -24,7 +24,16 @@ to record them, and to record their indices.
 
 
 
+
 class GenerateDataset:
+    """ This class is used to generate the sub-dataset and to record them.
+    input: num_subset: number of sub-dataset to generate
+           name_dataset: name of the dataset to use (MNIST or FashionMNIST)
+           name_folder: name of the folder to record the dataset
+           image_size: size of the image
+           sparsity: percentage of the dataset to use
+           output: None
+           """
     def __init__(self,num_subset,name_dataset, name_folder,image_size,sparsity=0.8):
         self.name_dataset=name_dataset
         self.name_folder = name_folder
@@ -42,6 +51,8 @@ class GenerateDataset:
 
 
     def initialise(self):
+        """ This method is used to initialise the dataset and to record it.
+        """
         transform = transforms.Compose([
             transforms.Resize(self.image_size),
             transforms.ToTensor(),
@@ -117,8 +128,8 @@ class GenerateDataset:
     def generate(self):
   
 
+        """ This method is used to generate the sub-dataset and to record them.
         """
-        Here I build a weight in order to sample correctly all my subsets"""
 
         print("*"*100)
         print("Creation of the weight vector for normalizing the sub-dataset.")
@@ -193,6 +204,10 @@ class GenerateDataset:
        
 
     def get_class_distribution(self):
+        """ 
+        This method is used to get the class distribution of the dataset.
+        output: count_dict: dictionary of the class distribution of the dataset.
+        """
         count_dict = {k:0 for k,v in self.dataset_train.class_to_idx.items()} # initialise dictionary
     
         for input, label in self.dataset_train:
@@ -203,6 +218,15 @@ class GenerateDataset:
     
 
     def train_sub_dataset(self,ResName,num_epoch,batch_size,learning_rate, scheduler= True):
+        """
+        This method is used to train the sub-dataset.
+        input: ResName: name of the network to use
+               num_epoch: number of epoch to train the model
+               batch_size: size of the batch
+               learning_rate: learning rate of the model
+               scheduler: boolean to use the scheduler  
+        output: None
+        """
         self.ResName =ResName
         
         if torch.backends.mps.is_available():
@@ -303,9 +327,11 @@ class GenerateDataset:
 
 
     def get_parameters(self):
+        """ This method is used to get the parameters of the class."""
         return self.num_subset,self.name_folder,self.name_dataset, self.ResName
     
     def add_network_type(self,ResName):
+        """This method is used to add the network type to the class."""
         self.ResName=ResName
         
 
